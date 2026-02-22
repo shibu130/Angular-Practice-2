@@ -5,11 +5,13 @@ import { FirstComponentComponent } from '../first-component/first-component.comp
 import { SecondComponentComponent } from '../second-component/second-component.component';
 import { TemplateDrivenComponent } from '../template-driven/template-driven.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormComponent } from '../reactive-form/reactive-form.component';
 
 const routes:Routes = [
   {path:"first", component: FirstComponentComponent},
   {path:"second", component:SecondComponentComponent},
-  {path:"templateDriven", component: TemplateDrivenComponent}
+  {path:"templateDriven", component: TemplateDrivenComponent},
+  {path:"reactiveForm", component: ReactiveFormComponent}
 ];
 
 @NgModule({
