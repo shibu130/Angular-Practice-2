@@ -150,6 +150,13 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
 
       // (flat map & mergemap are same) , tap , map , filter
 
+      // tap - side effects -> observe data
+
+
+      
+      // map -> make changes to data 
+
+      // filter -> make changes to data
 
 
       // ********* subjects and types ***********//
