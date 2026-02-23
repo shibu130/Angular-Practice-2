@@ -7,17 +7,29 @@ import { TemplateDrivenComponent } from '../template-driven/template-driven.comp
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from '../reactive-form/reactive-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ControlValAcessorExampleComponent } from '../control-val-acessor-example/control-val-acessor-example.component';
+import { SignalFormExampleComponent } from '../signal-form-example/signal-form-example.component';
+import { CustomElementComponent } from '../custom-element/custom-element.component';
 const routes:Routes = [
   {path: "", component:TemplateDrivenComponent},
   {path:"first", component: FirstComponentComponent},
   {path:"second", component:SecondComponentComponent},
   {path:"templateDriven", component: TemplateDrivenComponent},
   {path:"reactiveForm", component: ReactiveFormComponent},
-  {path: "", component:TemplateDrivenComponent}
+  {path:"controlValue", component: ControlValAcessorExampleComponent},
+  {path:"signalForm", component: SignalFormExampleComponent}
 ];
 
 @NgModule({
-  declarations: [FirstComponentComponent, SecondComponentComponent, TemplateDrivenComponent, ReactiveFormComponent],
+  declarations: [
+    FirstComponentComponent, 
+    SecondComponentComponent, 
+    TemplateDrivenComponent, 
+    ReactiveFormComponent, 
+    ControlValAcessorExampleComponent,
+    SignalFormExampleComponent,
+    CustomElementComponent,
+  ],
   imports: [
     ReactiveFormsModule,
     CommonModule,
