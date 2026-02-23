@@ -5,3 +5,9 @@ html, body {
   padding: 0;   /* Remove default padding */
   overflow: hidden; /* Prevent scrollbars */
 } 
+
+.text-decor-underline{
+  text-decoration: underline !important;
+  text-underline-offset: 7px;
+}
+
