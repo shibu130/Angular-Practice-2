@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, concatMap, delay, endWith, exhaustMap, forkJoin, from, mergeMap, Observable, of, startWith, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
+import { catchError, combineLatest, concatMap, delay, delayWhen, endWith, exhaustMap, forkJoin, from, mergeMap, Observable, of, retry, retryWhen, startWith, Subject, Subscription, switchMap, take, takeUntil, throwError, timer } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -180,20 +180,23 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
 
     // ************ utilities ************/
       // start with
-      of(2, 3, 4).pipe(
-        startWith(1)  // emit 1 first
-      ).subscribe(x => console.log(x));
+
+      // of(2, 3, 4).pipe(
+      //   startWith(1)  // emit 1 first
+      // ).subscribe(x => console.log(x));
 
       // end with
-      of(1, 2, 3).pipe(
-      endWith(4)  // emit 4 at the end
-      ).subscribe(x => console.log(x));
+
+      // of(1, 2, 3).pipe(
+      // endWith(4)  // emit 4 at the end
+      // ).subscribe(x => console.log(x));
 
       // delay
+
       // preserves all value after x time
-      of(1, 2, 3).pipe(
-      delay(2000)  // emit each value 2 seconds later
-      ).subscribe(x => console.log(x));
+      // of(1, 2, 3).pipe(
+      // delay(2000)  // emit each value 2 seconds later
+      // ).subscribe(x => console.log(x));
 
       // debounce
       // once time ends last value is taken
@@ -201,7 +204,52 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
       // throttle
       // emits first value
       // ignores others for certain amount of time
-  }
+
+      // catch error
+
+      // of(1, 2, 3).pipe(
+      // // simulate error
+      // mergeMap(x => x === 2 ? throwError(() => new Error('Oops')) : of(x)),
+      // catchError(err => {
+      //   console.log('Caught error:', err.message);
+      //   return of(999); // recover with a default value
+      // })
+      // ).subscribe(value => console.log(value));
+
+
+      // retry
+
+      // of(1, 2).pipe(
+      //   mergeMap(x => x === 2 ? throwError(() => new Error('Fail')) : of(x)),
+      //   retry(2)  // try 2 more times
+      // ).subscribe({
+      //   next: val => console.log(val),
+      //   error: err => console.log('Final error:', err.message)
+      // });
+
+
+      // retry when
+
+      // let attempt = 0;
+
+      // of('start').pipe(
+      //   mergeMap(() => {
+      //     attempt++;
+      //     console.log('Attempt:', attempt);
+      //     return attempt < 3 ? throwError(() => new Error('Fail')) : of('Success');
+      //   }),
+      //   retryWhen(errors =>
+      //     errors.pipe(
+      //       delayWhen(() => timer(1000)) // wait 1 second before retry
+      //     )
+      //   )
+      // ).subscribe({
+      //   next: val => console.log('Result:', val),
+      //   error: err => console.log('Final error:', err.message)
+      // });
+
+
+    }
 
   inputChange(){
 
