@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomElementComponent } from './custom-element/custom-element.component';
+import { RXJSPlaygroundComponent } from './rxjsplayground/rxjsplayground.component';
 @NgModule({
   declarations: [
     AppComponent,

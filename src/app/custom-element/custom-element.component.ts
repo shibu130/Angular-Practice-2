@@ -42,7 +42,7 @@ export class CustomElementComponent implements ControlValueAccessor{
   }
   
   setDisabledState?(isDisabled: boolean): void {
-    throw new Error('Method not implemented.');
+    // nothing to be done here
   }
 
   onInput(event:Event){

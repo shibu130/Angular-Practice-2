@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ControlValAcessorExampleComponent } from '../control-val-acessor-example/control-val-acessor-example.component';
 import { SignalFormExampleComponent } from '../signal-form-example/signal-form-example.component';
 import { CustomElementComponent } from '../custom-element/custom-element.component';
+import { RXJSPlaygroundComponent } from '../rxjsplayground/rxjsplayground.component';
 const routes:Routes = [
   {path: "", component:TemplateDrivenComponent},
   {path:"first", component: FirstComponentComponent},
@@ -17,7 +18,8 @@ const routes:Routes = [
   {path:"templateDriven", component: TemplateDrivenComponent},
   {path:"reactiveForm", component: ReactiveFormComponent},
   {path:"controlValue", component: ControlValAcessorExampleComponent},
-  {path:"signalForm", component: SignalFormExampleComponent}
+  {path:"signalForm", component: SignalFormExampleComponent},
+  {path:"rxjs", component:RXJSPlaygroundComponent}
 ];
 
 @NgModule({
@@ -29,6 +31,7 @@ const routes:Routes = [
     ControlValAcessorExampleComponent,
     SignalFormExampleComponent,
     CustomElementComponent,
+    RXJSPlaygroundComponent
   ],
   imports: [
     ReactiveFormsModule,
