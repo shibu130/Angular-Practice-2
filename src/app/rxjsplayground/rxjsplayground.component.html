@@ -2,11 +2,16 @@
     <div class="row">
         <div class="col-12">
 
-            <!--  -->
+            <!-- avoiding memory leaks -->
+            <!-- 1. assign to variable and on ngOnDestroy unsubscribe to it -->
+            <!-- 2. push all the subscription and loop over it to unsubscribe -->
+            <!-- 3. -->
 
-
-
-
+            <ul>
+                <li *ngFor="let i of userList |async;">
+                    {{i.id}} - {{i.title}}
+                </li>
+            </ul>
 
 
 

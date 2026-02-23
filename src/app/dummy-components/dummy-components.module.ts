@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { FirstComponentComponent } from '../first-component/first-component.component';
 import { SecondComponentComponent } from '../second-component/second-component.component';
@@ -12,6 +12,7 @@ import { SignalFormExampleComponent } from '../signal-form-example/signal-form-e
 import { CustomElementComponent } from '../custom-element/custom-element.component';
 import { RXJSPlaygroundComponent } from '../rxjsplayground/rxjsplayground.component';
 import { NestedFormComponent } from '../nested-form/nested-form.component';
+import {HttpClientModule } from '@angular/common/http';
 const routes:Routes = [
   {path: "", component:TemplateDrivenComponent},
   {path:"first", component: FirstComponentComponent},
@@ -42,8 +43,10 @@ const routes:Routes = [
     CommonModule,
     FormsModule,
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    HttpClientModule,
   ],
-  exports: [RouterModule,FormsModule]
+  exports: [RouterModule,FormsModule],
+  providers:[]
 })
 export class DummyComponentsModule { }
