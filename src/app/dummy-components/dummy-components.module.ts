@@ -6,17 +6,20 @@ import { SecondComponentComponent } from '../second-component/second-component.c
 import { TemplateDrivenComponent } from '../template-driven/template-driven.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormComponent } from '../reactive-form/reactive-form.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 const routes:Routes = [
+  {path: "", component:TemplateDrivenComponent},
   {path:"first", component: FirstComponentComponent},
   {path:"second", component:SecondComponentComponent},
   {path:"templateDriven", component: TemplateDrivenComponent},
-  {path:"reactiveForm", component: ReactiveFormComponent}
+  {path:"reactiveForm", component: ReactiveFormComponent},
+  {path: "", component:TemplateDrivenComponent}
 ];
 
 @NgModule({
-  declarations: [FirstComponentComponent, SecondComponentComponent, TemplateDrivenComponent],
+  declarations: [FirstComponentComponent, SecondComponentComponent, TemplateDrivenComponent, ReactiveFormComponent],
   imports: [
+    ReactiveFormsModule,
     CommonModule,
     FormsModule,
     CommonModule,
