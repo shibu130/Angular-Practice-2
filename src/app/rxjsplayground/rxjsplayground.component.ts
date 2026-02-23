@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { concatMap, exhaustMap, forkJoin, from, mergeMap, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
+import { combineLatest, concatMap, exhaustMap, forkJoin, from, mergeMap, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -138,7 +138,33 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
       //   console.log(e);
       // });
 
+
+      // combine latest
+      // waits until all observables emit atleast once
+
+        // combineLatest([this.getPosts(), this.getUsers()]).subscribe(([input, posts]) => {
+  
+        // });
+
+    
+
+        
+
       // ********* subjects and types ***********//
+
+
+      // subject doesnt have initial value , if not subscribed in time we wont get last value
+      // behaviour subject we can get the last value if not subscribed
+
+      // if we subscribe immediately we will get value-current otherwise we will miss (hot observable- starts immediately wether )
+
+
+      // sharereplay not init value , works when someone subscribes (cold observable)
+
+      // shareplay doesnt have init value
+
+      // similarity = both can give last value :)
+
 
 
 
