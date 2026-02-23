@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { combineLatest, concatMap, exhaustMap, forkJoin, from, mergeMap, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
+import { combineLatest, concatMap, delay, endWith, exhaustMap, forkJoin, from, mergeMap, Observable, of, startWith, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -153,7 +153,7 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
       // tap - side effects -> observe data
 
 
-      
+
       // map -> make changes to data 
 
       // filter -> make changes to data
@@ -178,9 +178,29 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
       //rxjs revesion done except for few topics :)
 
 
+    // ************ utilities ************/
+      // start with
+      of(2, 3, 4).pipe(
+        startWith(1)  // emit 1 first
+      ).subscribe(x => console.log(x));
 
+      // end with
+      of(1, 2, 3).pipe(
+      endWith(4)  // emit 4 at the end
+      ).subscribe(x => console.log(x));
 
+      // delay
+      // preserves all value after x time
+      of(1, 2, 3).pipe(
+      delay(2000)  // emit each value 2 seconds later
+      ).subscribe(x => console.log(x));
 
+      // debounce
+      // once time ends last value is taken
+
+      // throttle
+      // emits first value
+      // ignores others for certain amount of time
   }
 
   inputChange(){
