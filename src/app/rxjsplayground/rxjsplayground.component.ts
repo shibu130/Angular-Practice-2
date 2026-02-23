@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable, Subject, Subscription, take, takeUntil } from 'rxjs';
+import { forkJoin, from, Observable, of, Subject, Subscription, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -19,6 +19,7 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
   subscriptionArray:Subscription[] = [];
 
   userList:Observable<any>;
+  
 
   constructor(private httpClient:HttpClient){
 
@@ -63,9 +64,43 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
 
 
 
+    //* of - rxjs
+    // emits for each value
+    // array as one value
+    // wraps a type as observable *//
+
+    // of(1,2,4).subscribe(e=>{
+    //   console.log(e);
+    // }).unsubscribe();
+
+    // array emitted as one value 
+
+    // of([{a:1}, {b:1}]).subscribe(e=>{
+    //   console.log(e);
+    // }).unsubscribe()
+
+
+    // from converts an iterable and things to observable
+
+    // from([1,2,3]).subscribe(e=>{
+    //   console.log(e);
+    // }).unsubscribe();
+
+
+    // fork join
+    // api call 1 and api call 2 => fork join combines multiple api calls
+    // basically api one completes , api two completes then emits finally
+
+    // forkJoin([this.getPosts(), this.getUsers()]).pipe(takeUntil(this.voidSubject)).subscribe(e=>{  
+    //   console.log(e)
+    // })
 
 
 
+  }
+
+  getUsers(){
+    return this.httpClient.get("https://my-json-server.typicode.com/typicode/demo/comments");
   }
 
   getPosts(){
