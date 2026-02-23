@@ -47,6 +47,8 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
     
+    // -> https://www.youtube.com/watch?v=0NjhliVSuOM&list=PL7JmcZV0UQtVrhYmyvLM-VMz-zaZQMHj0&index=5 - refer for examples incase of doubt
+
     //this.subscription = this.getPosts().subscribe(e=>{});
     
     // listen only till the subject is not emitted
@@ -142,13 +144,13 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
       // combine latest
       // waits until all observables emit atleast once
 
-        // combineLatest([this.getPosts(), this.getUsers()]).subscribe(([input, posts]) => {
+      // combineLatest([this.getPosts(), this.getUsers()]).subscribe(([input, posts]) => {
   
-        // });
+      // });
 
-    
+      // (flat map & mergemap are same) , tap , map , filter
 
-        
+
 
       // ********* subjects and types ***********//
 
