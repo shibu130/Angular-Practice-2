@@ -1,7 +1,8 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { forkJoin, from, Observable, of, Subject, Subscription, take, takeUntil } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { forkJoin, from, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -19,9 +20,14 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
   subscriptionArray:Subscription[] = [];
 
   userList:Observable<any>;
+
+  inputText:FormControl = new FormControl('init');
   
 
   constructor(private httpClient:HttpClient){
+
+
+   
 
 
   }
@@ -96,8 +102,21 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
     // })
 
 
+      // switch map
+      // cancels the api calls inside if the above observable changes
+      this.inputText.valueChanges.pipe(switchMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q=phone?q='+e))).subscribe(e=>
+
+      {
+        console.log(e);
+      });
 
   }
+
+  inputChange(){
+
+
+  }
+
 
   getUsers(){
     return this.httpClient.get("https://my-json-server.typicode.com/typicode/demo/comments");
