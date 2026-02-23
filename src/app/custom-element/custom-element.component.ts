@@ -18,11 +18,11 @@ export class CustomElementComponent implements ControlValueAccessor{
 
   value: any = '';
 
-  constructor(@Optional() @Self() private ngControl: NgControl){
-
-    this.ngControl.valueAccessor = this;
-    this.controlName = (this.ngControl.name as string) || null;
-  }
+  // constructor(@Optional() @Self() public ngControl: NgControl) {
+  //   if (this.ngControl) {
+  //     this.ngControl.valueAccessor = this;
+  //   }
+  // }
 
   
 
@@ -45,4 +45,9 @@ export class CustomElementComponent implements ControlValueAccessor{
     throw new Error('Method not implemented.');
   }
 
+  onInput(event:Event){
+    let val = (event.target as HTMLInputElement).value
+    this.value = val;
+    this.onChange(this.value);
+  }
 }
