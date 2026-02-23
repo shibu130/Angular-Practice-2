@@ -43,23 +43,26 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
     //this.subscription = this.getPosts().subscribe(e=>{});
     
     // listen only till the subject is not emitted
-    this.getPosts().pipe(takeUntil(this.voidSubject)).subscribe(e=>{})
+    //this.getPosts().pipe(takeUntil(this.voidSubject)).subscribe(e=>{})
 
 
     // how many times we can subscribe
-    this.getPosts().pipe(take(1)).subscribe(e=>{});
+    //this.getPosts().pipe(take(1)).subscribe(e=>{});
 
 
 
     // array of subscriptions
-    let sub = this.getPosts().subscribe(e=>{});
+    //let sub = this.getPosts().subscribe(e=>{});
 
-    this.subscriptionArray.push(sub);
+    //this.subscriptionArray.push(sub);
 
 
     // async pipe 
 
-    this.userList = this.getPosts();
+    //this.userList = this.getPosts();
+
+
+
 
 
 
