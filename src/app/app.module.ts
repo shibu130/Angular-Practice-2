@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomElementComponent } from './custom-element/custom-element.component';
 import { RXJSPlaygroundComponent } from './rxjsplayground/rxjsplayground.component';
+import { NestedFormComponent } from './nested-form/nested-form.component';
 @NgModule({
   declarations: [
     AppComponent,

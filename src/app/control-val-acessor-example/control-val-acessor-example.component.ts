@@ -15,7 +15,7 @@ export class ControlValAcessorExampleComponent {
   constructor(private _fb:FormBuilder){
 
     this.form = this._fb.group({
-      value: ['']
+      value: ['Blessed are the clean of heart for they shall see god']
     });
   }
 

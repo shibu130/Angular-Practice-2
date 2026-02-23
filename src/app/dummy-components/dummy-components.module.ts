@@ -11,6 +11,7 @@ import { ControlValAcessorExampleComponent } from '../control-val-acessor-exampl
 import { SignalFormExampleComponent } from '../signal-form-example/signal-form-example.component';
 import { CustomElementComponent } from '../custom-element/custom-element.component';
 import { RXJSPlaygroundComponent } from '../rxjsplayground/rxjsplayground.component';
+import { NestedFormComponent } from '../nested-form/nested-form.component';
 const routes:Routes = [
   {path: "", component:TemplateDrivenComponent},
   {path:"first", component: FirstComponentComponent},
@@ -19,7 +20,8 @@ const routes:Routes = [
   {path:"reactiveForm", component: ReactiveFormComponent},
   {path:"controlValue", component: ControlValAcessorExampleComponent},
   {path:"signalForm", component: SignalFormExampleComponent},
-  {path:"rxjs", component:RXJSPlaygroundComponent}
+  {path:"rxjs", component:RXJSPlaygroundComponent},
+  {path:"nestedf", component: NestedFormComponent}
 ];
 
 @NgModule({
@@ -31,7 +33,9 @@ const routes:Routes = [
     ControlValAcessorExampleComponent,
     SignalFormExampleComponent,
     CustomElementComponent,
-    RXJSPlaygroundComponent
+    RXJSPlaygroundComponent,
+    NestedFormComponent,
+
   ],
   imports: [
     ReactiveFormsModule,
