@@ -2,7 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { forkJoin, from, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
+import { concatMap, exhaustMap, forkJoin, from, mergeMap, Observable, of, Subject, Subscription, switchMap, take, takeUntil } from 'rxjs';
 
 @Component({
   selector: 'app-rxjsplayground',
@@ -104,11 +104,39 @@ export class RXJSPlaygroundComponent implements OnInit,OnDestroy {
 
       // switch map
       // cancels the api calls inside if the above observable changes
-      this.inputText.valueChanges.pipe(switchMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q=phone?q='+e))).subscribe(e=>
+      // this.inputText.valueChanges.pipe(switchMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q=phone?q='+e))).subscribe(e=>
 
-      {
-        console.log(e);
-      });
+      // {
+      //   console.log(e);
+      // });
+
+
+      // merge map
+      // for all occurences the subscribe will fire
+
+      //  this.inputText.valueChanges.pipe(mergeMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q='+e))).subscribe(e=>
+
+      // {
+      //   console.log(e);
+      // });
+
+      // concat map
+      // once the previous one is completed the next one is called
+
+      //  this.inputText.valueChanges.pipe(concatMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q='+e))).subscribe(e=>
+
+      // {
+      //   console.log(e);
+      // });
+
+      // exhaust map
+      // if an observable call is going on then it wont run new until current one completes
+      //  this.inputText.valueChanges.pipe(exhaustMap(e=>this.httpClient.get('https://dummyjson.com/products/search?q='+e))).subscribe(e=>
+
+      // {
+      //   console.log(e);
+      // });
+
 
   }
 
